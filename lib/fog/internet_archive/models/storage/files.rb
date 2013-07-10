@@ -111,8 +111,8 @@ module Fog
         end
 
         def normalize_headers(data)
-          data.headers['Last-Modified'] = Time.parse(data.get_header('Last-Modified'))
-          data.headers['ETag'] = data.get_header('ETag').gsub('"','')
+          data.headers['Last-Modified'] = Time.parse(data.get_header('Last-Modified')) if data.get_header('Last-Modified')
+          data.headers['ETag'] = data.get_header('ETag').gsub('"','') if data.get_header('ETag')
         end
 
       end
